@@ -119,17 +119,5 @@ A level file itself is unambiguous: read `<character><id>` and look it up in the
 
 ## Preservation status
 
-Worth recording, since it affects anyone trying to follow these notes:
-
-* **Ben 10 Omniverse: Galactic Monsters Collection** — preserved and playable in Flashpoint
-  Archive as a GameZip. Complete.
-* **Ben 10 Omniverse Collection** — the game files exist and can be cached from the original
-  CDN by playing it, but some regional Flashpoint entries point at dead
-  `cartoonnetwork.com.au` / `.es` web wrappers that need a live backend and will not load.
-* **Ben 10 Ultimate Alien: The Ultimate Collection** — **incompletely preserved.**
-  Flashpoint's own download server returns 404 for its GameData. Flash Museum has only the
-  ~64 KB entry loader; the sibling files it requests (`preload.swf` and the rest) return 403.
-  A complete file tree does exist on at least one game portal, so the game is recoverable —
-  it just is not in the archives yet.
-
-That last one is a concrete, fixable gap if you curate for Flashpoint.
+How well each of these survives in public archives — and which one has a fixable gap — is
+in [preservation.md](preservation.md), with the evidence behind each claim.

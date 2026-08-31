@@ -3,7 +3,7 @@
 **Documentation and tools for the level format used by the Ben 10 Flash collection games.**
 
 These games — *Ben 10 Omniverse Collection* and *Ben 10 Omniverse: Galactic Monsters
-Collection*, built by [Yamago](https://en.wikipedia.org/wiki/Adobe_Flash) for Cartoon
+Collection*, built by the French studio Yamago for Cartoon
 Network — store their levels as plain XML files on disk. Nothing stopped anyone from
 writing new ones, except that the format was never documented anywhere.
 
@@ -14,7 +14,8 @@ Now it is. This repo contains:
 | [`docs/level-format.md`](docs/level-format.md) | The complete XML level format |
 | [`docs/engine-notes.md`](docs/engine-notes.md) | Engine internals, physics constants, per-alien abilities, unused content |
 | [`docs/running-locally.md`](docs/running-locally.md) | Getting a game to load your levels, and the traps along the way |
-| [`docs/games.md`](docs/games.md) | Per-game specifics: aliens, slots, file naming, preservation status |
+| [`docs/games.md`](docs/games.md) | Per-game specifics: aliens, slots, file naming |
+| [`docs/preservation.md`](docs/preservation.md) | How well these games survive in public archives, and where the gaps are |
 | [`editor/index.html`](editor/index.html) | A grid level editor — single file, no dependencies, no build step |
 | [`tools/`](tools/) | Python generator, validator, and the extracted class inventory |
 | [`levels/`](levels/) | Example levels made with the above |
