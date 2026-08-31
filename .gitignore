@@ -1,0 +1,26 @@
+# ---------------------------------------------------------------
+# No copyrighted game material in this repository. Ever.
+# The games belong to Cartoon Network / Turner; the engine to Yamago.
+# This repo documents the level format and ships tools — nothing else.
+# ---------------------------------------------------------------
+*.swf
+*.mp3
+*.wav
+*.ogg
+*.fla
+assets/
+extracted/
+game/
+sprites/
+sounds/
+
+# Decompiler output
+ffdec/
+*.as
+
+# Local scratch
+_scratch/
+*.bak
+*.orig.xml
+__pycache__/
+.DS_Store

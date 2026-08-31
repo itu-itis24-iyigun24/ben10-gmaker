@@ -1,0 +1,703 @@
+<title>Ben 10 Bölüm Atölyesi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0c1310; --surface:#141f1a; --surface2:#1b2a23; --raised:#22342b;
+  --line:#2b4136; --line-soft:#1f312a;
+  --text:#e4efe8; --muted:#8ba79a; --faint:#5f7a6e;
+  --accent:#4fd68a; --accent-dim:#2f8f5c;
+  --amber:#f0b445; --danger:#f2695c; --violet:#a98bf0; --cyan:#54c9d6;
+  --grid-bg:#101a16; --grid-line:#1c2c25;
+  --shadow:0 1px 0 rgba(255,255,255,.04), 0 8px 24px -12px rgba(0,0,0,.7);
+}
+:root:not([data-theme="dark"]){
+  --ink:#eef2ee; --surface:#ffffff; --surface2:#f4f7f4; --raised:#ffffff;
+  --line:#d3ded6; --line-soft:#e4ebe6;
+  --text:#16211c; --muted:#5c7367; --faint:#8ba093;
+  --accent:#1f9e5f; --accent-dim:#157a47;
+  --amber:#b8760c; --danger:#c8392b; --violet:#6d4bc4; --cyan:#12808c;
+  --grid-bg:#f7faf8; --grid-line:#e0e8e3;
+  --shadow:0 1px 0 rgba(255,255,255,.6), 0 8px 20px -14px rgba(20,40,30,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#0c1310; --surface:#141f1a; --surface2:#1b2a23; --raised:#22342b;
+    --line:#2b4136; --line-soft:#1f312a;
+    --text:#e4efe8; --muted:#8ba79a; --faint:#5f7a6e;
+    --accent:#4fd68a; --accent-dim:#2f8f5c;
+    --amber:#f0b445; --danger:#f2695c; --violet:#a98bf0; --cyan:#54c9d6;
+    --grid-bg:#101a16; --grid-line:#1c2c25;
+    --shadow:0 1px 0 rgba(255,255,255,.04), 0 8px 24px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#0c1310; --surface:#141f1a; --surface2:#1b2a23; --raised:#22342b;
+  --line:#2b4136; --line-soft:#1f312a;
+  --text:#e4efe8; --muted:#8ba79a; --faint:#5f7a6e;
+  --accent:#4fd68a; --accent-dim:#2f8f5c;
+  --amber:#f0b445; --danger:#f2695c; --violet:#a98bf0; --cyan:#54c9d6;
+  --grid-bg:#101a16; --grid-line:#1c2c25;
+  --shadow:0 1px 0 rgba(255,255,255,.04), 0 8px 24px -12px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ink); color:var(--text);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:14px; line-height:1.5; margin:0;
+}
+h1,h2,h3{font-family:"Chakra Petch","IBM Plex Sans",system-ui,sans-serif; margin:0; text-wrap:balance}
+button,select,input,textarea{font:inherit; color:inherit}
+
+.eyebrow{
+  font-family:"Chakra Petch",system-ui,sans-serif; font-size:11px; font-weight:600;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--faint);
+}
+
+/* ---- shell ---- */
+.app{max-width:1500px; margin:0 auto; padding:20px 22px 56px; display:flex; flex-direction:column; gap:18px}
+
+header.bar{display:flex; flex-wrap:wrap; align-items:flex-end; gap:18px 26px; padding-bottom:16px; border-bottom:1px solid var(--line)}
+.brand{display:flex; flex-direction:column; gap:3px}
+.brand h1{font-size:23px; font-weight:700; letter-spacing:-.01em}
+.brand .sub{color:var(--muted); font-size:13px}
+.omni{
+  width:30px; height:30px; border-radius:50%; flex:none;
+  background:radial-gradient(circle at 50% 50%, var(--accent) 0 34%, var(--ink) 35% 44%, var(--accent) 45% 52%, transparent 53%);
+  border:2px solid var(--accent-dim);
+}
+.brandrow{display:flex; align-items:center; gap:12px}
+
+.fields{display:flex; flex-wrap:wrap; gap:14px; margin-left:auto}
+.field{display:flex; flex-direction:column; gap:5px; min-width:0}
+.field > span{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); font-weight:600}
+select{
+  background:var(--surface2); border:1px solid var(--line); border-radius:7px;
+  padding:7px 10px; min-width:140px; cursor:pointer;
+}
+select:focus-visible, button:focus-visible, textarea:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+/* ---- three columns ---- */
+.cols{display:grid; grid-template-columns:190px minmax(0,1fr) 340px; gap:18px; align-items:start}
+@media (max-width:1180px){ .cols{grid-template-columns:170px minmax(0,1fr)} .side{grid-column:1/-1} }
+@media (max-width:760px){ .cols{grid-template-columns:1fr} }
+
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow)}
+.panel > .head{
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+  padding:11px 14px; border-bottom:1px solid var(--line-soft);
+}
+.panel > .body{padding:14px}
+
+/* ---- tools ---- */
+.tools{display:flex; flex-direction:column; gap:4px}
+.tool{
+  display:flex; align-items:center; gap:9px; width:100%; text-align:left;
+  background:transparent; border:1px solid transparent; border-radius:8px;
+  padding:7px 9px; cursor:pointer; transition:background .12s, border-color .12s;
+}
+.tool:hover{background:var(--surface2)}
+.tool[aria-pressed="true"]{background:var(--surface2); border-color:var(--accent-dim)}
+.tool .sw{width:17px; height:17px; border-radius:4px; flex:none; border:1px solid rgba(0,0,0,.25)}
+.tool .nm{font-size:13px}
+.tool kbd{
+  margin-left:auto; font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--faint);
+  border:1px solid var(--line); border-radius:4px; padding:1px 5px; background:var(--ink);
+}
+.toolgroup{margin-top:10px}
+.toolgroup:first-child{margin-top:0}
+
+.actions{display:flex; flex-direction:column; gap:6px}
+button.act{
+  background:var(--surface2); border:1px solid var(--line); border-radius:8px;
+  padding:8px 10px; cursor:pointer; text-align:left; transition:border-color .12s, background .12s;
+}
+button.act:hover{border-color:var(--accent-dim); background:var(--raised)}
+button.primary{background:var(--accent); color:#06120c; border-color:var(--accent); font-weight:600}
+button.primary:hover{background:var(--accent-dim); border-color:var(--accent-dim); color:#fff}
+
+/* ---- grid ---- */
+.stage{display:flex; flex-direction:column; gap:10px; align-items:center; padding:16px}
+.gridwrap{overflow-x:auto; max-width:100%; padding-bottom:4px}
+.gridtable{display:grid; grid-template-columns:22px repeat(20, var(--cs)); gap:0; --cs:34px}
+.rule{
+  font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--faint);
+  display:flex; align-items:center; justify-content:center; user-select:none;
+}
+.cell{
+  width:var(--cs); height:var(--cs); border-right:1px solid var(--grid-line); border-bottom:1px solid var(--grid-line);
+  background:var(--grid-bg); position:relative; cursor:crosshair; padding:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:500; color:#06120c;
+}
+.cell.c0{border-left:1px solid var(--grid-line)}
+.cell.r0{border-top:1px solid var(--grid-line)}
+.cell.ground{box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.cell.floorline{border-top:1px dashed var(--accent-dim)}
+.cell:hover{outline:2px solid var(--accent); outline-offset:-2px; z-index:2}
+.legendrow{display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:center; color:var(--muted); font-size:12px}
+.legendrow b{display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:5px; vertical-align:-1px}
+
+.hint{color:var(--muted); font-size:12.5px; text-align:center; max-width:62ch}
+
+/* ---- side ---- */
+.side{display:flex; flex-direction:column; gap:18px}
+.kv{display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-bottom:1px dashed var(--line-soft); font-size:13px}
+.kv:last-child{border-bottom:0}
+.kv .v{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; color:var(--muted)}
+
+.checks{display:flex; flex-direction:column; gap:7px; margin:0; padding:0; list-style:none}
+.chk{display:flex; gap:9px; align-items:flex-start; font-size:13px; line-height:1.4}
+.chk .dot{width:8px; height:8px; border-radius:50%; margin-top:6px; flex:none}
+.chk.ok .dot{background:var(--accent)}
+.chk.warn .dot{background:var(--amber)}
+.chk.err .dot{background:var(--danger)}
+.chk.ok{color:var(--muted)}
+.chk.err{color:var(--danger)}
+.chk.warn{color:var(--amber)}
+
+.filename{
+  font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(--ink);
+  border:1px solid var(--line); border-radius:7px; padding:8px 10px; color:var(--accent);
+  overflow-x:auto; white-space:nowrap;
+}
+textarea.xml{
+  width:100%; height:200px; resize:vertical; background:var(--ink); color:var(--muted);
+  border:1px solid var(--line); border-radius:8px; padding:10px;
+  font-family:"IBM Plex Mono",monospace; font-size:11px; line-height:1.45;
+}
+.row{display:flex; gap:8px}
+.row > *{flex:1}
+.badge{
+  font-family:"Chakra Petch",sans-serif; font-size:11px; font-weight:600; letter-spacing:.06em;
+  padding:2px 8px; border-radius:999px; border:1px solid var(--line); color:var(--muted);
+}
+.badge.good{color:var(--accent); border-color:var(--accent-dim)}
+.badge.bad{color:var(--danger); border-color:var(--danger)}
+.toast{
+  position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(12px);
+  background:var(--raised); border:1px solid var(--accent-dim); color:var(--text);
+  padding:10px 18px; border-radius:9px; box-shadow:var(--shadow);
+  opacity:0; pointer-events:none; transition:opacity .18s, transform .18s; z-index:50; font-size:13px;
+}
+.toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+@media (prefers-reduced-motion:reduce){ *{transition:none !important} }
+footer.note{color:var(--faint); font-size:12.5px; max-width:80ch; line-height:1.6}
+footer.note code{font-family:"IBM Plex Mono",monospace; color:var(--muted)}
+</style>
+
+<div class="app">
+  <header class="bar">
+    <div class="brand">
+      <div class="brandrow">
+        <div class="omni" aria-hidden="true"></div>
+        <h1>Bölüm Atölyesi</h1>
+      </div>
+      <div class="sub">Ben 10 · Yamago motoru için bölüm üretici · <a href="https://github.com/itu-itis24-iyigun24/ben10-gmaker" style="color:var(--accent)">ben10-gmaker</a></div>
+    </div>
+    <div class="fields">
+      <label class="field"><span>Oyun</span>
+        <select id="selGame"></select></label>
+      <label class="field"><span>Alien</span>
+        <select id="selAlien"></select></label>
+      <label class="field"><span>Slot</span>
+        <select id="selDiff"></select></label>
+      <label class="field"><span>Hedef</span>
+        <select id="selGoal"></select></label>
+      <label class="field"><span>Arka plan</span>
+        <select id="selBg"></select></label>
+      <label class="field"><span>Duvar teması</span>
+        <select id="selTheme"></select></label>
+    </div>
+  </header>
+
+  <div class="cols">
+    <!-- ---------- tools ---------- -->
+    <div class="panel">
+      <div class="head"><span class="eyebrow">Araçlar</span></div>
+      <div class="body">
+        <div class="tools" id="tools"></div>
+        <div class="toolgroup">
+          <div class="eyebrow" style="margin-bottom:8px">Hızlı işlem</div>
+          <div class="actions">
+            <button class="act" id="btnGround">Zemin doldur</button>
+            <button class="act" id="btnBorder">Kenar blokları</button>
+            <button class="act" id="btnClear">Haritayı temizle</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------- grid ---------- -->
+    <div class="panel">
+      <div class="head">
+        <span class="eyebrow">Harita · 20 × 14</span>
+        <span class="badge" id="cellCount">0 hücre</span>
+      </div>
+      <div class="stage">
+        <div class="gridwrap"><div class="gridtable" id="grid"></div></div>
+        <div class="legendrow" id="legend"></div>
+        <p class="hint">Boyamak için sürükle. Sağ tık siler. Oyuncu ve hedef tektir — yeni koyunca eskisi taşınır.
+          Kesikli çizgi zemin hizası: oyuncu ve robotlar bunun üstünde durmalı.</p>
+      </div>
+    </div>
+
+    <!-- ---------- side ---------- -->
+    <div class="side">
+      <div class="panel">
+        <div class="head"><span class="eyebrow">Denetim</span><span class="badge" id="verdict">—</span></div>
+        <div class="body"><ul class="checks" id="checks"></ul></div>
+      </div>
+
+      <div class="panel">
+        <div class="head"><span class="eyebrow">Sayım</span></div>
+        <div class="body" id="stats"></div>
+      </div>
+
+      <div class="panel">
+        <div class="head"><span class="eyebrow">Çıktı</span></div>
+        <div class="body" style="display:flex; flex-direction:column; gap:10px">
+          <div>
+            <div class="eyebrow" style="margin-bottom:6px">Kaydedilecek yol</div>
+            <div class="filename" id="path"></div>
+          </div>
+          <textarea class="xml" id="xml" readonly spellcheck="false"></textarea>
+          <div class="row">
+            <button class="act primary" id="btnCopy">XML'i kopyala</button>
+            <button class="act" id="btnImport">XML yükle</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="head"><span class="eyebrow">Taslaklar</span></div>
+        <div class="body" style="display:flex; flex-direction:column; gap:8px">
+          <div class="row">
+            <button class="act" id="btnSave">Kaydet</button>
+            <select id="selDraft"><option value="">— taslak seç —</option></select>
+          </div>
+          <div class="row">
+            <button class="act" id="btnLoad">Yükle</button>
+            <button class="act" id="btnDel">Sil</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="note" style="margin-bottom:10px">
+    <strong>Omniverse'de iki zorluk var:</strong> <code>easy</code> ve <code>hard</code>.
+    Zorluk ekranında sadece iki buton var ve <code>hard</code>, easy bitirilene kadar kilitli
+    (<code>ScreenChoiceLevelInterS.as</code>: <code>if (state == UNLOCK) hard.askDisable()</code>).
+    Yani yeni bir hard bölümü denemek için o alien'ın easy'sini bir kez bitirmen gerekiyor.
+    Galactic Monsters'ta ise 5 slot var ve kilit yok.
+  </footer>
+  <footer class="note">
+    <strong>Neden <code>&lt;variant&gt;</code> yok:</strong> motorun <code>Clip.as</code> dosyası variant yoksa
+    <code>StateMgr(mc, -1)</code> çağırıyor ve geçerli bir görünümü kendi rastgele seçiyor. Variant yazmak ise
+    sabit bir indeks demek — o sprite'ta o indeks yoksa oyun <code>#1009</code> ile çöküyor. Bu yüzden atölye
+    hiç variant yazmaz; bu hem güvenli hem her hücreye ücretsiz görsel çeşitlilik verir.
+  </footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+const W = 20, H = 14;
+
+const GAMES = {
+  oc: {
+    label: "Omniverse Collection",
+    path: "C:\\ben10oc\\save\\",
+    diffs: ["easy", "hard"],
+    aliens: { swampfire:1, humongousaur:2, spidermonkey:4, brainstorm:5, waterhazard:6,
+              terraspin:7, cannonbolt:8, echoecho:9, bigchill:10, feedback:11,
+              gravattack:12, ballweevil:13, bloxx:14 }
+  },
+  gm: {
+    label: "Galactic Monsters",
+    path: "C:\\ben10gm\\content\\localflash\\iceboxCN\\galacticmonsters\\save\\",
+    diffs: ["0", "1", "2", "3", "4"],
+    aliens: { blitzwolfer:17, snareoh:18 }
+  }
+};
+const GOALS = { 1:["Goal_Neutral","Kapıya ulaş"], 2:["Goal_Items","Küreleri topla"],
+                3:["Goal_Enemies","Düşmanları yen"], 4:["Goal_EnemiesItems","Topla + yen"] };
+const BGS = [];
+for (const t of ["city","castle","jungle","landscape","lava","spaceship"])
+  for (let i=0;i<3;i++) BGS.push(`BG_${t}_${i}`);
+const THEMES = ["ville","roche","jungle","lave2","volt","saw"];
+const ITEMKINDS = ["city","jungle","lava","phantom"];
+
+const TOOLS = [
+  { k:"wall",  nm:"Duvar",            col:"#7d8f86", key:"1", solid:true },
+  { k:"plat",  nm:"Platform",         col:"#4fd68a", key:"2", solid:true },
+  { k:"fall",  nm:"Düşen platform",   col:"#f0b445", key:"3", solid:true },
+  { k:"saw",   nm:"Testere (dikey)",  col:"#f2695c", key:"4", solid:true },
+  { k:"volt",  nm:"Elektrik (dikey)", col:"#a98bf0", key:"5", solid:true },
+  { k:"item",  nm:"Küre",             col:"#54c9d6", key:"6" },
+  { k:"rfix",  nm:"Robot (sabit)",    col:"#e0684f", key:"7" },
+  { k:"rmov",  nm:"Robot (hareketli)",col:"#ff9166", key:"8" },
+  { k:"box",   nm:"İtilebilir kutu",  col:"#b48a5c", key:"9" },
+  { k:"sbox",  nm:"Sağlam kutu",      col:"#8a6a44", key:"0" },
+  { k:"gen",   nm:"Düşman üretici",   col:"#c86ec8", key:"g" },
+  { k:"player",nm:"Oyuncu",           col:"#ffe066", key:"p" },
+  { k:"goal",  nm:"Hedef",            col:"#ffd21e", key:"h" },
+  { k:"erase", nm:"Sil",              col:"transparent", key:"x" }
+];
+const GLYPH = { item:"o", rfix:"X", rmov:"X", box:"B", sbox:"B", gen:"G",
+                player:"P", goal:"H", fall:"~", saw:"^", volt:"^" };
+const TOOLMAP = Object.fromEntries(TOOLS.map(t => [t.k, t]));
+
+// ---------- state ----------
+let cells = Array.from({length:H}, () => Array(W).fill(null));
+let cur = "wall";
+let painting = false, eraseDrag = false;
+const st = {
+  game:"oc", alien:"swampfire", diff:"hard", goal:2,
+  bg:"BG_city_1", theme:"ville", item:"city"
+};
+
+// ---------- helpers ----------
+const $ = id => document.getElementById(id);
+const at = (i,j) => (j>=0 && j<H && i>=0 && i<W) ? cells[j][i] : null;
+const isSolid = k => k && TOOLMAP[k] && TOOLMAP[k].solid;
+const find = k => { for (let j=0;j<H;j++) for (let i=0;i<W;i++) if (cells[j][i]===k) return {i,j}; return null; };
+const countOf = pred => { let n=0; for (let j=0;j<H;j++) for (let i=0;i<W;i++) if (pred(cells[j][i])) n++; return n; };
+
+function toast(msg){
+  const t = $("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toast._t); toast._t = setTimeout(()=>t.classList.remove("show"), 1900);
+}
+
+// ---------- build chrome ----------
+function fillSelect(el, items, val, labelFn){
+  el.innerHTML = "";
+  for (const v of items){
+    const o = document.createElement("option");
+    o.value = String(v); o.textContent = labelFn ? labelFn(v) : String(v);
+    el.appendChild(o);
+  }
+  el.value = String(val);
+}
+function syncGameSelects(){
+  const g = GAMES[st.game];
+  const aliens = Object.keys(g.aliens);
+  if (!aliens.includes(st.alien)) st.alien = aliens[0];
+  if (!g.diffs.includes(st.diff)) st.diff = g.diffs[g.diffs.length-1];
+  fillSelect($("selAlien"), aliens, st.alien, a => a[0].toUpperCase()+a.slice(1));
+  fillSelect($("selDiff"), g.diffs, st.diff, d => st.game==="gm" ? `Bölüm ${+d+1}` : d);
+}
+function buildChrome(){
+  fillSelect($("selGame"), Object.keys(GAMES), st.game, k => GAMES[k].label);
+  syncGameSelects();
+  fillSelect($("selGoal"), Object.keys(GOALS), st.goal, k => `${k} · ${GOALS[k][1]}`);
+  fillSelect($("selBg"), BGS, st.bg);
+  fillSelect($("selTheme"), THEMES, st.theme);
+
+  $("selGame").onchange  = e => { st.game = e.target.value; syncGameSelects(); render(); };
+  $("selAlien").onchange = e => { st.alien = e.target.value; render(); };
+  $("selDiff").onchange  = e => { st.diff = e.target.value; render(); };
+  $("selGoal").onchange  = e => { st.goal = +e.target.value; render(); };
+  $("selBg").onchange    = e => { st.bg = e.target.value; render(); };
+  $("selTheme").onchange = e => { st.theme = e.target.value; render(); };
+
+  const tw = $("tools");
+  for (const t of TOOLS){
+    const b = document.createElement("button");
+    b.className = "tool"; b.type = "button"; b.dataset.k = t.k;
+    b.setAttribute("aria-pressed", String(t.k===cur));
+    b.innerHTML = `<span class="sw" style="background:${t.col}${t.k==="erase"?";border-style:dashed":""}"></span>
+                   <span class="nm">${t.nm}</span><kbd>${t.key}</kbd>`;
+    b.onclick = () => { cur = t.k; document.querySelectorAll(".tool").forEach(x =>
+      x.setAttribute("aria-pressed", String(x.dataset.k===cur))); };
+    tw.appendChild(b);
+  }
+  $("legend").innerHTML = TOOLS.filter(t=>t.k!=="erase")
+    .map(t => `<span><b style="background:${t.col}"></b>${t.nm}</span>`).join("");
+
+  addEventListener("keydown", e => {
+    if (e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA") return;
+    const t = TOOLS.find(x => x.key === e.key.toLowerCase());
+    if (t){ cur = t.k; document.querySelectorAll(".tool").forEach(x =>
+      x.setAttribute("aria-pressed", String(x.dataset.k===cur))); }
+  });
+}
+
+// ---------- grid ----------
+function buildGrid(){
+  const g = $("grid"); g.innerHTML = "";
+  const corner = document.createElement("div"); corner.className = "rule"; g.appendChild(corner);
+  for (let i=0;i<W;i++){ const d=document.createElement("div"); d.className="rule"; d.textContent=i%5===0?i:"·"; g.appendChild(d); }
+  for (let j=0;j<H;j++){
+    const r = document.createElement("div"); r.className="rule"; r.textContent=j; g.appendChild(r);
+    for (let i=0;i<W;i++){
+      const c = document.createElement("button");
+      c.type="button"; c.className = "cell" + (i===0?" c0":"") + (j===0?" r0":"") + (j===12?" floorline":"");
+      c.dataset.i=i; c.dataset.j=j;
+      c.setAttribute("aria-label", `sütun ${i} satır ${j}`);
+      c.addEventListener("mousedown", ev => { ev.preventDefault(); painting=true; eraseDrag = ev.button===2; paint(i,j,eraseDrag); });
+      c.addEventListener("mouseenter", () => { if (painting) paint(i,j,eraseDrag); });
+      c.addEventListener("contextmenu", ev => ev.preventDefault());
+      g.appendChild(c);
+    }
+  }
+  addEventListener("mouseup", () => painting=false);
+}
+function paint(i,j,erase){
+  const k = erase ? null : (cur==="erase" ? null : cur);
+  if (k==="player" || k==="goal"){ const p=find(k); if (p) cells[p.j][p.i]=null; }
+  cells[j][i] = k;
+  render();
+}
+
+// ---------- autotile ----------
+const isWall = (i,j) => at(i,j)==="wall";
+// W_<tema>_URDL : Yukari, Sag, Asagi, Sol
+const maskWall = (i,j) =>
+  (isWall(i,j-1)?"1":"0") + (isWall(i+1,j)?"1":"0") +
+  (isWall(i,j+1)?"1":"0") + (isWall(i-1,j)?"1":"0");
+const isPlat = (i,j) => at(i,j)==="plat";
+const isHaz  = (i,j,k) => at(i,j)===k;
+
+// ---------- xml ----------
+const DEPTH = { plat:40000, fall:50000, goal:60000, gen:70000, item:80000,
+                box:90000, sbox:90000, rfix:100000, rmov:100000, player:110000 };
+function classOf(k,i,j){
+  switch(k){
+    case "wall": return `W_${st.theme}_${maskWall(i,j)}`;
+    case "plat": return `PF_0${isPlat(i+1,j)?"1":"0"}0${isPlat(i-1,j)?"1":"0"}`;
+    case "fall": return "PFall";
+    case "saw":  return `W_saw_${isHaz(i,j-1,"saw")?"1":"0"}0${isHaz(i,j+1,"saw")?"1":"0"}0`;
+    case "volt": return `W_volt_${isHaz(i,j-1,"volt")?"1":"0"}0${isHaz(i,j+1,"volt")?"1":"0"}0`;
+    case "item": return `Item_${st.item}`;
+    case "rfix": return "Robot_Fix";
+    case "rmov": return "Robot_Move";
+    case "box":  return "Object_box";
+    case "sbox": return "Object_solidBox";
+    case "gen":  return "Enemy_Generator";
+    case "goal": return GOALS[st.goal][0];
+    case "player": return PLAYERCLASS[GAMES[st.game].aliens[st.alien]];
+  }
+}
+const PLAYERCLASS = {1:"Ben10Swampfire",2:"Ben10Humongousaur",3:"Ben10Jetray",4:"Ben10Spidermonkey",
+  5:"Ben10Brainstorm",6:"Ben10Waterhazard",7:"Ben10Terraspin",8:"Ben10Cannonbolt",9:"Ben10Echoecho",
+  10:"Ben10Bigchill",11:"Ben10Feedback",12:"Ben10Gravattack",13:"Ben10BallWeevil",14:"Ben10Bloxx",
+  17:"Ben10Blitzwolfer",18:"Ben10SnareOh"};
+const RECT = { goal:[-2,2,-4,1], rfix:[-1,1,-1,1], rmov:[-1,1,-1,1], box:[-1,1,-1,1], sbox:[-1,1,-1,1] };
+
+function depthOf(k,i,j){
+  if (k==="wall") return Math.max(19975, Math.min(20019, 20019 - i - (H-1-j)));
+  if (k==="saw" || k==="volt") return 29990 - j;
+  return DEPTH[k];
+}
+function buildXml(){
+  const rows = []; let id = 1000;
+  const order = ["wall","saw","volt","plat","fall","goal","gen","item","box","sbox","rfix","rmov","player"];
+  for (const kind of order){
+    for (let j=0;j<H;j++) for (let i=0;i<W;i++){
+      if (cells[j][i] !== kind) continue;
+      id += 137;
+      const L = [`      <cell id="instance${id}" i="${i}" j="${j}">`,
+                 `        <class>${classOf(kind,i,j)}</class>`,
+                 `        <depth>${depthOf(kind,i,j)}</depth>`];
+      const r = RECT[kind];
+      if (r) L.push("        <rect>", `          <imin>${r[0]}</imin>`, `          <imax>${r[1]}</imax>`,
+                    `          <jmin>${r[2]}</jmin>`, `          <jmax>${r[3]}</jmax>`, "        </rect>");
+      L.push("        <dx>15</dx>", "        <dy>15</dy>", "      </cell>");
+      rows.push(L.join("\n"));
+    }
+  }
+  const charId = GAMES[st.game].aliens[st.alien];
+  return `<level>\n  <infos>\n    <version>0.1.0</version>\n  </infos>\n` +
+         `  <tc>\n    <id/>\n    <title/>\n  </tc>\n  <game>\n` +
+         `    <bg>\n      <id>${st.bg}</id>\n    </bg>\n` +
+         `    <goal>\n      <id>${st.goal}</id>\n    </goal>\n` +
+         `    <character>\n      <id>${charId}</id>\n    </character>\n` +
+         `    <map>\n${rows.join("\n")}\n    </map>\n  </game>\n</level>\n`;
+}
+
+// ---------- validation ----------
+function validate(){
+  const out = [];
+  const p = find("player"), h = find("goal");
+  const items = countOf(k => k==="item");
+  const robots = countOf(k => k==="rfix" || k==="rmov");
+
+  out.push(p ? {s:"ok", t:"Oyuncu yerleştirildi"} : {s:"err", t:"Oyuncu yok — bölüm başlamaz"});
+  out.push(h ? {s:"ok", t:"Hedef yerleştirildi"} : {s:"err", t:"Hedef yok — bölüm bitirilemez"});
+
+  if (st.goal===2 || st.goal===4)
+    out.push(items ? {s:"ok", t:`${items} küre var`} : {s:"err", t:"Hedef küre topla ama küre yok"});
+  if (st.goal===3 || st.goal===4)
+    out.push(robots ? {s:"ok", t:`${robots} düşman var`} : {s:"err", t:"Hedef düşman yen ama düşman yok"});
+
+  if (p){
+    const near = [];
+    for (let j=0;j<H;j++) for (let i=0;i<W;i++)
+      if ((cells[j][i]==="rfix"||cells[j][i]==="rmov") && Math.abs(i-p.i)+Math.abs(j-p.j) <= 3) near.push(`${i},${j}`);
+    if (near.length) out.push({s:"err", t:`Düşman doğuş noktasına çok yakın (${near.join(" · ")})`});
+    const below = at(p.i, p.j+1);
+    if (!isSolid(below)) out.push({s:"warn", t:"Oyuncunun altında zemin yok — düşerek başlar"});
+  }
+  const floating = [];
+  for (let j=0;j<H;j++) for (let i=0;i<W;i++){
+    const k = cells[j][i];
+    if (k==="rfix"||k==="rmov"||k==="box"||k==="sbox"){
+      if (!isSolid(at(i,j+1))) floating.push(`${i},${j}`);
+    }
+  }
+  if (floating.length) out.push({s:"warn", t:`Havada duran nesne: ${floating.slice(0,6).join(" · ")}${floating.length>6?" …":""}`});
+
+  const lone = [];
+  for (let j=0;j<H;j++) for (let i=0;i<W;i++){
+    const k = cells[j][i];
+    if ((k==="saw"||k==="volt") && at(i,j-1)!==k && at(i,j+1)!==k) lone.push(`${i},${j}`);
+  }
+  if (lone.length) out.push({s:"warn", t:`Tek hücrelik tehlike (orijinaller hep dikey sütun): ${lone.slice(0,5).join(" · ")}`});
+
+  if (!out.some(o=>o.s==="err") && !out.some(o=>o.s==="warn"))
+    out.push({s:"ok", t:"Uyarı yok — bölüm hazır"});
+  return out;
+}
+
+// ---------- render ----------
+function render(){
+  const gcells = $("grid").querySelectorAll(".cell");
+  gcells.forEach(c => {
+    const i=+c.dataset.i, j=+c.dataset.j, k=cells[j][i];
+    const t = k ? TOOLMAP[k] : null;
+    c.style.background = t ? t.col : "";
+    c.textContent = (k && GLYPH[k]) ? GLYPH[k] : "";
+    c.title = k ? `${t.nm} · ${classOf(k,i,j)}` : `${i}, ${j}`;
+  });
+
+  const total = countOf(k => !!k);
+  $("cellCount").textContent = `${total} hücre`;
+
+  const checks = validate();
+  $("checks").innerHTML = checks.map(o =>
+    `<li class="chk ${o.s}"><span class="dot"></span><span>${o.t}</span></li>`).join("");
+  const nerr = checks.filter(o=>o.s==="err").length;
+  const v = $("verdict");
+  v.textContent = nerr ? `${nerr} hata` : "Geçerli";
+  v.className = "badge " + (nerr ? "bad" : "good");
+
+  $("stats").innerHTML = [
+    ["Duvar", countOf(k=>k==="wall")], ["Platform", countOf(k=>k==="plat"||k==="fall")],
+    ["Küre", countOf(k=>k==="item")], ["Düşman", countOf(k=>k==="rfix"||k==="rmov")],
+    ["Tehlike", countOf(k=>k==="saw"||k==="volt")], ["Kutu", countOf(k=>k==="box"||k==="sbox")]
+  ].map(([a,b]) => `<div class="kv"><span>${a}</span><span class="v">${b}</span></div>`).join("");
+
+  $("path").textContent = GAMES[st.game].path + `${st.alien}_${st.diff}.xml`;
+  $("xml").value = buildXml();
+  try { localStorage.setItem("ben10atolye.son", JSON.stringify({cells, st})); } catch(e){}
+}
+
+// ---------- quick actions ----------
+$("btnGround").onclick = () => { for (let i=0;i<W;i++){ cells[12][i]="wall"; cells[13][i]="wall"; } render(); toast("Zemin dolduruldu"); };
+$("btnBorder").onclick = () => {
+  for (let j=10;j<=11;j++){ for (const i of [0,1,2]) cells[j][i]="wall"; for (const i of [17,18,19]) cells[j][i]="wall"; }
+  render(); toast("Kenar blokları eklendi");
+};
+$("btnClear").onclick = () => { cells = Array.from({length:H},()=>Array(W).fill(null)); render(); toast("Harita temizlendi"); };
+
+// ---------- copy / import ----------
+$("btnCopy").onclick = async () => {
+  const ta = $("xml");
+  try { await navigator.clipboard.writeText(ta.value); toast("Kopyalandı — dosyaya yapıştır"); return; } catch(e){}
+  ta.removeAttribute("readonly"); ta.select(); ta.setSelectionRange(0, ta.value.length);
+  let ok=false; try { ok = document.execCommand("copy"); } catch(e){}
+  ta.setAttribute("readonly","");
+  toast(ok ? "Kopyalandı — dosyaya yapıştır" : "Metin seçildi — Ctrl+C ile kopyala");
+};
+$("btnImport").onclick = () => {
+  const txt = prompt("Mevcut bölüm XML'ini yapıştır:");
+  if (!txt) return;
+  try {
+    const doc = new DOMParser().parseFromString(txt, "text/xml");
+    if (doc.querySelector("parsererror")) throw new Error("XML okunamadı");
+    const grid = Array.from({length:H},()=>Array(W).fill(null));
+    for (const c of doc.querySelectorAll("cell")){
+      const i=+c.getAttribute("i"), j=+c.getAttribute("j");
+      const cl = c.querySelector("class").textContent.trim();
+      let k = null;
+      if (cl.startsWith("W_saw")) k="saw";
+      else if (cl.startsWith("W_volt")) k="volt";
+      else if (cl.startsWith("W_")) k="wall";
+      else if (cl==="PFall") k="fall";
+      else if (cl.startsWith("PF")) k="plat";
+      else if (cl.startsWith("Item_")) k="item";
+      else if (cl==="Robot_Fix") k="rfix";
+      else if (cl==="Robot_Move") k="rmov";
+      else if (cl==="Object_box") k="box";
+      else if (cl==="Object_solidBox") k="sbox";
+      else if (cl==="Enemy_Generator") k="gen";
+      else if (cl.startsWith("Goal_")) k="goal";
+      else if (cl.startsWith("Ben10")) k="player";
+      if (k && j>=0 && j<H && i>=0 && i<W) grid[j][i]=k;
+      if (cl.startsWith("W_") && !cl.startsWith("W_saw") && !cl.startsWith("W_volt")){
+        const th = cl.split("_")[1]; if (THEMES.includes(th)) st.theme = th;
+      }
+      if (cl.startsWith("Item_")) { const kk = cl.split("_")[1]; if (ITEMKINDS.includes(kk)) st.item = kk; }
+    }
+    const bg = doc.querySelector("bg > id"), gl = doc.querySelector("goal > id"), ch = doc.querySelector("character > id");
+    if (bg && BGS.includes(bg.textContent.trim())) st.bg = bg.textContent.trim();
+    if (gl && GOALS[+gl.textContent.trim()]) st.goal = +gl.textContent.trim();
+    if (ch){
+      const cid = +ch.textContent.trim();
+      for (const [gk,g] of Object.entries(GAMES))
+        for (const [a,v] of Object.entries(g.aliens))
+          if (v===cid){ st.game=gk; st.alien=a; }
+    }
+    cells = grid;
+    syncGameSelects();
+    $("selGame").value=st.game; $("selGoal").value=st.goal; $("selBg").value=st.bg; $("selTheme").value=st.theme;
+    render(); toast("Bölüm yüklendi");
+  } catch(err){ toast("Okunamadı: " + err.message); }
+};
+
+// ---------- drafts ----------
+const DKEY = "ben10atolye.taslaklar";
+const readDrafts = () => { try { return JSON.parse(localStorage.getItem(DKEY) || "{}"); } catch(e){ return {}; } };
+function refreshDrafts(){
+  const d = readDrafts(), sel = $("selDraft");
+  sel.innerHTML = '<option value="">— taslak seç —</option>';
+  for (const n of Object.keys(d).sort()){ const o=document.createElement("option"); o.value=n; o.textContent=n; sel.appendChild(o); }
+}
+$("btnSave").onclick = () => {
+  const def = `${st.alien}_${st.diff}`;
+  const n = prompt("Taslak adı:", def); if (!n) return;
+  const d = readDrafts(); d[n] = {cells, st};
+  try { localStorage.setItem(DKEY, JSON.stringify(d)); refreshDrafts(); $("selDraft").value=n; toast(`"${n}" kaydedildi`); }
+  catch(e){ toast("Kaydedilemedi — tarayıcı depolaması kapalı olabilir"); }
+};
+$("btnLoad").onclick = () => {
+  const n = $("selDraft").value; if (!n) return toast("Önce taslak seç");
+  const d = readDrafts()[n]; if (!d) return toast("Taslak bulunamadı");
+  cells = d.cells; Object.assign(st, d.st);
+  syncGameSelects();
+  $("selGame").value=st.game; $("selGoal").value=st.goal; $("selBg").value=st.bg; $("selTheme").value=st.theme;
+  render(); toast(`"${n}" yüklendi`);
+};
+$("btnDel").onclick = () => {
+  const n = $("selDraft").value; if (!n) return toast("Önce taslak seç");
+  const d = readDrafts(); delete d[n];
+  try { localStorage.setItem(DKEY, JSON.stringify(d)); } catch(e){}
+  refreshDrafts(); toast(`"${n}" silindi`);
+};
+
+// ---------- boot ----------
+buildChrome();
+buildGrid();
+try {
+  const last = JSON.parse(localStorage.getItem("ben10atolye.son") || "null");
+  if (last && Array.isArray(last.cells) && last.cells.length === H){
+    cells = last.cells; Object.assign(st, last.st);
+    syncGameSelects();
+    $("selGame").value=st.game; $("selGoal").value=st.goal; $("selBg").value=st.bg; $("selTheme").value=st.theme;
+  } else { $("btnGround").click(); $("btnBorder").click(); }
+} catch(e){ }
+refreshDrafts();
+render();
+</script>
