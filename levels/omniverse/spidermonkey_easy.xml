@@ -413,7 +413,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance10179" i="13" j="11">
+      <cell id="instance10179" i="16" j="11">
         <class>Robot_Move</class>
         <depth>100000</depth>
         <rect>
@@ -425,7 +425,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance10316" i="10" j="11">
+      <cell id="instance10316" i="13" j="11">
         <class>Robot_Fix</class>
         <depth>100000</depth>
         <rect>
@@ -437,7 +437,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance10453" i="4" j="11">
+      <cell id="instance10453" i="14" j="11">
         <class>Object_box</class>
         <depth>90000</depth>
         <rect>
@@ -449,25 +449,13 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance10590" i="9" j="11">
-        <class>Object_solidBox</class>
-        <depth>90000</depth>
-        <rect>
-          <imin>-1</imin>
-          <imax>1</imax>
-          <jmin>-1</jmin>
-          <jmax>1</jmax>
-        </rect>
-        <dx>15</dx>
-        <dy>15</dy>
-      </cell>
-      <cell id="instance10727" i="0" j="9">
+      <cell id="instance10590" i="0" j="9">
         <class>Ben10Spidermonkey</class>
         <depth>110000</depth>
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance10864" i="18" j="8">
+      <cell id="instance10727" i="18" j="8">
         <class>Goal_Items</class>
         <depth>60000</depth>
         <rect>

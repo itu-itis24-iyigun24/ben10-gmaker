@@ -10,7 +10,7 @@ Network and published as Flash games around 2012–2014.
 | | |
 |---|---|
 | Entry SWF | `GameCreatorBen10.swf` |
-| Level path | `save/<alienId>_<easy\|hard>.xml` |
+| Level path | `save/<alienId>_<slot>.xml` |
 | Slots | **2** — `easy` and `hard` |
 | Aliens | 13 |
 | Wall themes | `ville`, `jungle`, `roche`, `lave`, `lave2` |
@@ -69,7 +69,7 @@ complete playable set needs all 26.
 | | |
 |---|---|
 | Entry SWF | `GameCreatorBen10.swf` |
-| Level path | `save/<alienId>_<0-4>.xml` |
+| Level path | `save/<alienId>_<slot>.xml` |
 | Slots | **5** — `0` through `4`, shown as LEVEL 1–5 |
 | Aliens | 2 |
 | Wall themes | `ville`, `jungle`, `roche`, `lave2` |

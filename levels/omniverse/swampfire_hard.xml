@@ -467,7 +467,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance11412" i="13" j="11">
+      <cell id="instance11412" i="4" j="6">
         <class>Robot_Move</class>
         <depth>100000</depth>
         <rect>
@@ -479,7 +479,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance11549" i="14" j="11">
+      <cell id="instance11549" i="11" j="3">
         <class>Robot_Fix</class>
         <depth>100000</depth>
         <rect>
@@ -491,7 +491,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance11686" i="8" j="11">
+      <cell id="instance11686" i="17" j="6">
         <class>Robot_Move</class>
         <depth>100000</depth>
         <rect>
@@ -503,7 +503,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance11823" i="11" j="11">
+      <cell id="instance11823" i="8" j="11">
         <class>Robot_Fix</class>
         <depth>100000</depth>
         <rect>
@@ -515,7 +515,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance11960" i="12" j="11">
+      <cell id="instance11960" i="7" j="11">
         <class>Robot_Move</class>
         <depth>100000</depth>
         <rect>
@@ -527,7 +527,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance12097" i="7" j="11">
+      <cell id="instance12097" i="13" j="2">
         <class>Robot_Fix</class>
         <depth>100000</depth>
         <rect>
@@ -539,7 +539,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance12234" i="4" j="11">
+      <cell id="instance12234" i="14" j="11">
         <class>Object_box</class>
         <depth>90000</depth>
         <rect>

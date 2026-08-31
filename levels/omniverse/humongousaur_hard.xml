@@ -467,7 +467,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance11412" i="8" j="11">
+      <cell id="instance11412" i="4" j="6">
         <class>Robot_Move</class>
         <depth>100000</depth>
         <rect>
@@ -479,7 +479,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance11549" i="3" j="11">
+      <cell id="instance11549" i="12" j="6">
         <class>Robot_Fix</class>
         <depth>100000</depth>
         <rect>
@@ -491,7 +491,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance11686" i="15" j="11">
+      <cell id="instance11686" i="10" j="11">
         <class>Robot_Move</class>
         <depth>100000</depth>
         <rect>
@@ -503,7 +503,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance11823" i="14" j="11">
+      <cell id="instance11823" i="6" j="4">
         <class>Robot_Fix</class>
         <depth>100000</depth>
         <rect>
@@ -515,7 +515,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance11960" i="10" j="11">
+      <cell id="instance11960" i="17" j="6">
         <class>Robot_Move</class>
         <depth>100000</depth>
         <rect>
@@ -527,7 +527,7 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance12097" i="11" j="11">
+      <cell id="instance12097" i="13" j="2">
         <class>Robot_Fix</class>
         <depth>100000</depth>
         <rect>
@@ -539,25 +539,13 @@
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance12234" i="4" j="11">
-        <class>Object_box</class>
-        <depth>90000</depth>
-        <rect>
-          <imin>-1</imin>
-          <imax>1</imax>
-          <jmin>-1</jmin>
-          <jmax>1</jmax>
-        </rect>
-        <dx>15</dx>
-        <dy>15</dy>
-      </cell>
-      <cell id="instance12371" i="0" j="9">
+      <cell id="instance12234" i="0" j="9">
         <class>Ben10Humongousaur</class>
         <depth>110000</depth>
         <dx>15</dx>
         <dy>15</dy>
       </cell>
-      <cell id="instance12508" i="18" j="6">
+      <cell id="instance12371" i="18" j="6">
         <class>Goal_Enemies</class>
         <depth>60000</depth>
         <rect>
